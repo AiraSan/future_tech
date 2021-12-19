@@ -2,4 +2,7 @@
   .hero-img {
     width: 80% !important;
   }
+  .mobile-100 {
+    width: 100% !important;
+  }
 }
