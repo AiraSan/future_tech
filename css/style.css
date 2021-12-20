@@ -40,6 +40,23 @@ p {
   line-height: 24px;
   font-size: 14px;
 }
+.active-nav {
+  color: #fff !important;
+  font-weight: bold;
+}
+.sticky .active-nav::after,
+.active-nav::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #c46cff;
+  animation: slideLeft 0.5s;
+  z-index: -1;
+}
+.active-nav::after {
+  background-color: #c46cff;
+}
 /* ------- Button ---------- */
 .btn-general {
   background-color: #29b7dd;
@@ -56,15 +73,26 @@ p {
   background-color: #1e99bb;
   color: #fff;
 }
+.menu-icon {
+  font-size: 1.7rem;
+}
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+  outline: none;
+}
 /* ------- Common Effect ----------- */
 #home,
 #blog {
   background-color: var(--main);
 }
 /* ------- Header Section ---------- */
-header {
+.site-nav {
   position: absolute;
   top: 0;
+  z-index: 99;
 }
 .logo-img {
   width: 100px;
@@ -164,6 +192,43 @@ header {
   animation: moveUp 0.7s;
   color: #29b7dd !important;
 }
+/* ------- Sticky Navbar --------- */
+.sticky {
+  position: fixed !important;
+  top: 0;
+  background-color: #00000080;
+  backdrop-filter: blur(7px);
+  z-index: 9999;
+  animation: moveDown 0.5s;
+}
+/* ------- Custom Animation Delay ---------- */
+.delay-1 {
+  animation-delay: 0.3s;
+}
+.delay-2 {
+  animation-delay: 0.6s;
+}
+.delay-3 {
+  animation-delay: 0.9s;
+}
+.delay-4 {
+  animation-delay: 1.2s;
+}
+.delay-5 {
+  animation-delay: 1.5s;
+}
+.delay-6 {
+  animation-delay: 2s;
+}
+.delay-7 {
+  animation-delay: 2.5s;
+}
+.delay-8 {
+  animation-delay: 3s;
+}
+.delay-9 {
+  animation-delay: 3.5s;
+}
 /* ------- Custom Animate ---------- */
 @keyframes moveUp {
   0% {
@@ -171,6 +236,14 @@ header {
   }
   50% {
     transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes moveDown {
+  0% {
+    transform: translateY(-100px);
   }
   100% {
     transform: translateY(0);

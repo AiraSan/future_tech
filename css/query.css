@@ -5,4 +5,22 @@
   .mobile-100 {
     width: 100% !important;
   }
+  .sticky .navbar-nav {
+    background-color: transparent;
+  }
+  .navbar-nav {
+    background-color: #3f265eee;
+  }
+  .nav-item {
+    text-align: center;
+    margin: 10px 0 1;
+    padding: 6px 24px;
+  }
+  .nav-item .active-nav {
+    border: 3px solid #c46cff !important;
+    border-radius: 28px;
+  }
+  .active-nav::after {
+    background-color: transparent !important;
+  }
 }

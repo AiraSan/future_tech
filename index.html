@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<div class="loader-container">
+    <div class="loader-container">
+        <div class="wrapper">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="shadow"></div>
+            <div class="shadow"></div>
+            <div class="shadow"></div>
+            <span>Loading</span>
+        </div>
+    </div>
+</div>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,6 +38,8 @@
     <meta name="theme-color" content="#ffffff"> 
     <!-- bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="css/animate.min.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
     <!-- Google Fonts -->
@@ -36,23 +51,124 @@
     <!-- query css -->
     <link rel="stylesheet" href="css/query.css">
 </head>
+<style>
+    .loader-container {
+      background-color: #3F265E;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      z-index: 2000;
+    }
+.wrapper{
+    width:200px;
+    height:60px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+}
+.circle{
+    width:20px;
+    height:20px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff;
+    left:15%;
+    transform-origin: 50%;
+    animation: circle .5s alternate infinite ease;
+}
+
+@keyframes circle{
+    0%{
+        top:60px;
+        height:5px;
+        border-radius: 50px 50px 25px 25px;
+        transform: scaleX(1.7);
+    }
+    40%{
+        height:20px;
+        border-radius: 50%;
+        transform: scaleX(1);
+    }
+    100%{
+        top:0%;
+    }
+}
+.circle:nth-child(2){
+    left:45%;
+    animation-delay: .2s;
+}
+.circle:nth-child(3){
+    left:auto;
+    right:15%;
+    animation-delay: .3s;
+}
+.shadow{
+    width:20px;
+    height:4px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top:62px;
+    transform-origin: 50%;
+    z-index: -1;
+    left:15%;
+    filter: blur(1px);
+    animation: shadow .5s alternate infinite ease;
+}
+
+@keyframes shadow{
+    0%{
+        transform: scaleX(1.5);
+    }
+    40%{
+        transform: scaleX(1);
+        opacity: .7;
+    }
+    100%{
+        transform: scaleX(.2);
+        opacity: .4;
+    }
+}
+.shadow:nth-child(4){
+    left: 45%;
+    animation-delay: .2s
+}
+.shadow:nth-child(5){
+    left:auto;
+    right:15%;
+    animation-delay: .3s;
+}
+.wrapper span{
+    position: absolute;
+    top:75px;
+    font-family: 'Lato';
+    font-size: 20px;
+    letter-spacing: 12px;
+    color: #fff;
+    left:15%;
+}
+</style>
 <body>
     <!-- Header Section Start -->
-    <header class="container-fluid">
+    <header class="container-fluid site-nav">
         <div class="row">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <nav class="navbar navbar-expand-lg navbar-dark">
                             <a class="navbar-brand" href="#">
-                                <img src="img/logo.png" alt="" class="logo-img"><h4>Future</h4>
+                                <img src="img/logo.png" alt="" class="logo-img wow animate__fadeInLeft"><h4 class="wow animate__fadeInRight">Future</h4>
                             </a>
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
+                            <button class="navbar-toggler wow animate__fadeInDown" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                              <span class="fas fa-bars menu-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                              <ul class="navbar-nav">
-                                <li class="nav-item active">
+                              <ul class="navbar-nav wow animate__fadeInDown">
+                                <li class="nav-item">
                                   <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
@@ -84,16 +200,16 @@
                 <div class="row min-vh-100 align-items-center flex-column-reverse justify-content-center flex-md-row-reverse">
                     <div class="col-12 col-md-5">
                         <div class="ml-5">
-                            <h1 class="text-white">Web Software <span id="hero-text">Developers</span></h1>
-                            <p class="text-white-50 mt-2 mb-3">
+                            <h1 class="text-white wow animate__slideInRight delay-1">Web Software <span id="hero-text">Developers</span></h1>
+                            <p class="text-white-50 mt-2 mb-3 wow animate__slideInRight delay-2">
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit vero architecto asperiores ipsa iure a pariatur id sint fugiat? Libero repellat eos nihil eum, laborum consectetur tempora eveniet distinctio suscipit?
                             </p>
-                            <a href="#" class="btn btn-general animated-btn">Read More <i class="feature-icon fas fa-arrow-right animated-icon"></i></a>
+                            <a href="#" class="btn btn-general animated-btn wow animate__slideInRight delay-3">Read More <i class="feature-icon fas fa-arrow-right animated-icon wow animate__zoomInDown delay-5"></i></a>
                         </div>
                     </div>
                     <div class="col-12 col-md-7">
                         <div class="text-center">
-                            <img src="img/hero-img.png" class="w-100 hero-img" alt="">
+                            <img src="img/hero-img.png" class="w-100 hero-img wow animate__slideInLeft" alt="">
                         </div>
                     </div>
                 </div>
@@ -104,8 +220,8 @@
 
     <!-- Feature Start -->
     <section class="container" id="feature">
-        <div class="row py-4">
-            <div class="col-12 text-center">
+        <div class="row py-5">
+            <div class="col-12 text-center pt-5">
                 <h1 class="mb-3 line-center">Key Features</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing Beatae unde, quidem recusandae consequatur commodi elit.</p>
             </div>
@@ -113,39 +229,39 @@
         <div class="row pb-5">
             <div class="col-12 col-md-6">
                 <div class="text-center">
-                    <img src="img/business.jpg" class="feature-img w-100" alt="">
+                    <img src="img/business.jpg" class="feature-img w-100 wow animate__zoomIn" alt="">
                 </div>
             </div>
             <div class="col-12 col-md-6 mt-3 mt-md-0">
                 <div class="row h-100">
                     <div class="col-12 col-md-6 mb-3 mb-md-3">
-                        <div class="card">
+                        <div class="card wow animate__zoomIn delay-1">
                             <div class="card-body bg-success text-center p-4">
-                                <i class="feature-icon fas fa-laptop-code mb-3 text-white h1"></i>
+                                <i class="feature-icon fas fa-laptop-code mb-3 text-white h1 wow animate__bounceInDown delay-5"></i>
                                 <h4 class="text-white m-0 font-weight-lighter">Development</h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-3 mb-md-3">
-                        <div class="card">
+                        <div class="card wow animate__zoomIn delay-2">
                             <div class="card-body bg-info text-center p-4">
-                                <i class="feature-icon fas fa-briefcase mb-3 text-white h1"></i>
+                                <i class="feature-icon fas fa-briefcase mb-3 text-white h1 wow animate__bounceInDown delay-6"></i>
                                 <h4 class="text-white m-0 font-weight-lighter">Skills</h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-3 mb-md-0">
-                        <div class="card">
+                        <div class="card wow animate__zoomIn delay-3">
                             <div class="card-body bg-warning text-center p-4">
-                                <i class="feature-icon fab fa-hive mb-3 text-white h1"></i>
+                                <i class="feature-icon fab fa-hive mb-3 text-white h1 wow animate__bounceInDown delay-7"></i>
                                 <h4 class="text-white m-0 font-weight-lighter">Design</h4>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 mb-3 mb-md-0">
-                        <div class="card">
+                        <div class="card wow animate__zoomIn delay-4">
                             <div class="card-body bg-danger text-center p-4">
-                                <i class="feature-icon fas fa-mobile mb-3 text-white h1"></i>
+                                <i class="feature-icon fas fa-mobile mb-3 text-white h1 wow animate__bounceInDown delay-8"></i>
                                 <h4 class="text-white m-0 font-weight-lighter">Responsive</h4>
                             </div>
                         </div>
@@ -161,34 +277,34 @@
         <div class="row min-vh-100">
             <div class="container">
                 <div class="row py-5">
-                    <div class="col-12">
+                    <div class="col-12 pt-5">
                         <h1 class="text-white line">Data Visulation</h1>
                     </div>
                 </div>
                 <div class="row pb-5">
                     <div class="col-12 col-md-6">
                         <div>
-                            <img src="img/data.jpg" class="w-100" alt="">
+                            <img src="img/data.jpg" class="w-100 wow animate__zoomIn" alt="">
                         </div>
                     </div>
                     <div class="col-12 col-md-6 d-flex flex-column justify-content-between">
                         <div class="data-content my-5 my-md-0">
-                            <h5 class="text-white font-weight-bold">
+                            <h5 class="text-white font-weight-bold wow animate__slideInRight delay-2">
                                 01. GOALS
                             </h5>
                             <div class=" ml-5">
-                                <p class="text-white w-50 mobile-100">
+                                <p class="text-white w-50 mobile-100 wow animate__slideInRight delay-3">
                                     Lorem ipsum, dolor sit amet consectetur adipisicingv itae maxime nam nulla porro elit bulite kasfie kliet.
                                 </p>
                                 <a href="#" class="text-white">Read More</a>
                             </div>
                         </div>
                         <div class="data-content">
-                            <h5 class="text-white font-weight-bold">
+                            <h5 class="text-white font-weight-bold wow animate__slideInRight delay-4">
                                 02. STRATEGY
                             </h5>
                             <div class=" ml-5 ">
-                                <p class="text-white w-50 mobile-100">
+                                <p class="text-white w-50 mobile-100 wow animate__slideInRight delay-5">
                                     Lorem ipsum, dolor sit amet consectetur adipisicingv itae maxime nam nulla porro elit bulite kasfie kliet.
                                 </p>
                                 <a href="#" class="text-white">Read More</a>
@@ -204,13 +320,13 @@
     <!-- Services Section Start -->
     <section class="container" id="service">
         <div class="row pt-5 pb-3">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center pt-5">
                 <h1 class="text-black line-center">Services</h1>
             </div>
         </div>
         <div class="row my-4 mt-md-0 align-items-center flex-column justify-content-center flex-md-row">
             <div class="col-12 col-md-4 mb-5 mb-md-0">
-                <div class="mr-5 mr-md-0 ml-0 ml-md-5">
+                <div class="mr-5 mr-md-0 ml-0 ml-md-5 wow animate__zoomIn delay-1">
                     <h1 class="text-info">IT Services</h1>
                     <p style="font-size: 17px;" class="my-4">
                         We collaborate with you to create new value through digital transformation. We have hundreds of specialists at your service.
@@ -220,18 +336,18 @@
             </div>
             <div class="col-12 col-md-8">
                 <div>
-                    <img src="img/it.jpg" class="w-100" alt="">
+                    <img src="img/it.jpg" class="w-100 wow animate__zoomIn" alt="">
                 </div>
             </div>
         </div>
         <div class="row my-4 my-md-0 align-items-center flex-column-reverse justify-content-center flex-md-row">
             <div class="col-12 col-md-8">
                 <div>
-                    <img src="img/it-2.jpg" class="w-100" alt="">
+                    <img src="img/it-2.jpg" class="w-100 wow animate__zoomIn" alt="">
                 </div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="mr-5">
+                <div class="mr-5 wow animate__zoomIn delay-1">
                     <h1 class="text-info">IT Services</h1>
                     <p style="font-size: 17px;" class="my-4">
                         We collaborate with you to create new value through digital transformation. We have hundreds of specialists at your service.
@@ -250,48 +366,48 @@
                 <div class="row min-vh-100 align-items-center flex-column justify-content-center flex-md-row">
                     <div class="col-12 col-md-6 mb-4 mb-md-0 pt-4 pt-md-0">
                         <div>
-                            <img src="img/touch.jpg" class="w-100" alt="">
+                            <img src="img/touch.jpg" class="w-100 wow animate__zoomIn" alt="">
                         </div>
                     </div>
                     <div class="col-12 col-md-6 align-content-end extra-box">
                         <div class="row h-100">
                             <div class="col-12 col-md-6 mb-4">
-                                <div class="card extra-card">
+                                <div class="card extra-card wow animate__zoomIn delay-1">
                                     <div class="card-body d-flex flex-column justify-content-center text-center">
-                                        <div class="svg-container mx-auto mb-3">
+                                        <div class="svg-container mx-auto mb-3 wow animate__slideInLeft delay-6">
                                             <img src="img/dev.png" class="svg" alt="">
                                         </div>
-                                        <h5 class="text-uppercase font-weight-light m-0">development</h5>
+                                        <h5 class="text-uppercase font-weight-light m-0 wow animate__slideInRight delay-6">development</h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-4">
-                                <div class="card extra-card">
+                                <div class="card extra-card wow animate__zoomIn delay-2">
                                     <div class="card-body d-flex flex-column justify-content-center text-center">
-                                        <div class="svg-container mx-auto mb-3">
+                                        <div class="svg-container mx-auto mb-3 wow animate__slideInLeft delay-6">
                                             <img src="img/5g.png" class="svg" alt="">
                                         </div>
-                                        <h5 class="text-uppercase font-weight-light m-0">5g network</h5>
+                                        <h5 class="text-uppercase font-weight-light m-0 wow animate__slideInRight delay-6">5g network</h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-4 mb-md-0">
-                                <div class="card extra-card">
+                                <div class="card extra-card wow animate__zoomIn delay-3">
                                     <div class="card-body d-flex flex-column justify-content-center text-center">
-                                        <div class="svg-container mx-auto mb-3">
+                                        <div class="svg-container mx-auto mb-3 wow animate__slideInLeft delay-6">
                                             <img src="img/ai.png" class="svg" alt="">
                                         </div>
-                                        <h5 class="text-uppercase font-weight-light m-0">ai products</h5>
+                                        <h5 class="text-uppercase font-weight-light m-0 wow animate__slideInRight delay-6">ai products</h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 mb-4 mb-md-0">
-                                <div class="card extra-card">
+                                <div class="card extra-card wow animate__zoomIn delay-4">
                                     <div class="card-body d-flex flex-column justify-content-center text-center">
-                                        <div class="svg-container mx-auto mb-3">
+                                        <div class="svg-container mx-auto mb-3 wow animate__slideInLeft delay-6">
                                             <img src="img/automation.png" class="svg" alt="">
                                         </div>
-                                        <h5 class="text-uppercase font-weight-light m-0">automation</h5>
+                                        <h5 class="text-uppercase font-weight-light m-0 wow animate__slideInRight delay-6">automation</h5>
                                     </div>
                                 </div>
                             </div>
@@ -332,7 +448,7 @@
     <section class="container-fluid" id="contact">
         <div class="row bg-secondary">
             <div class="container">
-                <div class="row">
+                <div class="row pt-5">
                     <div class="col-12 text-center">
                         <div class="mt-5">
                             <h1 class="text-white">Get in Touch!</h1>
@@ -400,5 +516,14 @@
         </div>
     </section>
     <!-- Contact Section End -->
+
+    <!-- jQuery -->
+    <script src="vendor/js/jquery.min.js"></script>
+    <!-- Waypoint -->
+    <script src="vendor/js/jquery.waypoints.min.js"></script>
+    <!-- Wow Js -->
+    <script src="vendor/js/wow.min.js"></script>
+    <!-- Custom Js -->
+    <script src="js/script.js"></script>
 </body>
 </html>
