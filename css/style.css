@@ -79,10 +79,10 @@ header {
 #home #hero-text {
   color: #c46cff;
 }
-.home-icon {
+.animated-icon {
   transition: 0.7s;
 }
-.home-btn:hover .home-icon {
+.animated-btn:hover .animated-icon {
   transform: translateX(8px);
 }
 /* -------- Feature Section --------- */
@@ -154,7 +154,25 @@ header {
 }
 .contact-icon {
   font-size: 22px;
+  transition: color 1.5s;
+  transform: translateY(0);
 }
 .contact-card {
   height: 220px;
+}
+.contact-card:hover .contact-icon {
+  animation: moveUp 0.7s;
+  color: #29b7dd !important;
+}
+/* ------- Custom Animate ---------- */
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
